@@ -22,14 +22,12 @@ const UserSchema = new Schema({
     sex: { type: Number, default: 1 },
     // 生日
     birthday: {type: Date, default: Date.now},
-    // 文件夹
-    folder: { type: Schema.Types.ObjectId, ref: 'Folders' },
     // 手机号
     phone: Number,
     // 邮箱
-    email: { type: String,  unique: true, required: true },
+    email: { type: String, required: true },
     // 是否可用, 默认可用
-    activity: {type: Boolean, default: true},
+    activity: {type: Boolean, default: false},
     // 角色 "管理员：admin、超级管理员：administrator "
     roles: {type: String, default: ''}
 }, {

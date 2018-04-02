@@ -22,5 +22,12 @@ export default {
     // 秘钥
     "secretOrKey": "xcdcxt",
     // mongodb 配置
-    "mongo": mongo[NODE_ENV]
+    "mongo": mongo[NODE_ENV],
+    // 应用名称
+    "appName": "快应用",
+    "email": {
+        "host": "smtp.qq.com",
+        "user": "xxxx@qq.com",
+        "pass": "xxxx" 
+    }
 }
