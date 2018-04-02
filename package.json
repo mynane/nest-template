@@ -10,11 +10,7 @@
     "test": "mocha src/__test__/**/*.test.ts src/api/**/*.test.ts",
     "test_cover": "istanbul cover node_modules/mocha/bin/_mocha src/api/**/*.test.ts",
     "docs": "documentation build api/**/*.*.ts --format md --github -o ./docs/api/image.md",
-    "prestart:prod": "tsc",
-    "production": "cross-env NODE_ENV=production && forever start ./dist/main.js",
-    "pm2-dev": "sh ../server.sh dev",
-    "pm2-pro": "sh ../server.sh pro",
-    "pm2-test": "sh ../server.sh test"
+    "prestart:prod": "tsc"
   },
   "dependencies": {
     "@nestjs/common": "^4.3.0",
@@ -39,7 +35,7 @@
     "lodash": "^4.17.4",
     "lz-string": "^1.4.4",
     "moment": "^2.19.3",
-    "mongoose": "^4.12.4",
+    "mongoose": "^5.0.1",
     "node-uuid": "^1.4.8",
     "passport": "^0.4.0",
     "passport-jwt": "^3.0.1",

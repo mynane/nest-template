@@ -41,13 +41,27 @@ export const fail = (data = {}, message = '请求失败') => {
  * 用户未登录
  * @param data 
  */
-export const notFound = (data = {}) => {
+export const notFound = (data = {}, message = '登录失效') => {
     if (data === null) {
         data = {}
     }
     return {
         code: 401,
         message: '用户未登录',
+        data
+    }
+}
+
+/**
+ * 登录过期
+ */
+export const expired = (data = {}, message = '登录失效') => {
+    if (data === null) {
+        data = {}
+    }
+    return {
+        code: 401,
+        message: '登录失效',
         data
     }
 }
