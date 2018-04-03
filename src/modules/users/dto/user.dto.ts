@@ -1,12 +1,33 @@
+import {IsOptional, IsBoolean, IsDate, IsString, IsInt, IsEmail, Length} from 'class-validator';
+
 export class CreateUserDto {
-    readonly name: string;
-    readonly password: string;
-    readonly salt: string;
-    readonly sex: number;
-    readonly birthday: Date;
+    @IsString()
+    @Length(5, 15)
+    @IsOptional()
+    readonly name?: string;
+    @IsString()
+    @IsOptional()
+    readonly password?: string;
+    @IsString()
+    @IsOptional()
+    readonly salt?: string;
+    @IsInt()
+    @IsOptional()
+    readonly sex?: number;
+    @IsDate()
+    @IsOptional()
+    readonly birthday?: Date;
+    @IsInt()
+    @IsOptional()
     readonly phone: number;
-    readonly email: string;
-    readonly activity: boolean;
-    readonly roles: string
+    @IsEmail()
+    @IsOptional()
+    readonly email?: string;
+    @IsBoolean()
+    @IsOptional()
+    readonly activity?: boolean;
+    @IsString()
+    @IsOptional()
+    readonly roles?: string
 }
   

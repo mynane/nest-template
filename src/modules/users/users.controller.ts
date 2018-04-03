@@ -11,7 +11,7 @@ export class UsersController {
   @Post()
   async create(@Body() createUserDto: CreateUserDto) {
     const result = await this.usersService.create(createUserDto);
-    await sendEmail(createUserDto.email, 'register', createUserDto);
+    await sendEmail(createUserDto.email, 'register', {...createUserDto});
     await sendEmail(createUserDto.email, 'verificationCode', {code: '123123v'});
     return result;
   }

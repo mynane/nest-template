@@ -11,6 +11,9 @@ import * as flash from 'express-flash';
 import CONFIG from '../config';
 import { ApplicationModule } from './app.module';
 
+import { ValidationPipe } from './common/pipes/validation.pipe';
+import { HttpExceptionFilter } from './common/filters/http-exception.filter';
+
 async function bootstrap() {
     const app = await NestFactory.create(ApplicationModule);
 
@@ -26,6 +29,11 @@ async function bootstrap() {
         cookie: { secure: true }
     }));
     app.use(flash())
+
+    /** nest通用 */
+    app.useGlobalPipes(new ValidationPipe());
+    app.useGlobalFilters(new HttpExceptionFilter());
+    /** nest通用 */
 
     await app.listen(CONFIG.port);
 }

@@ -7,10 +7,12 @@
   "scripts": {
     "start": "cross-env NODE_ENV=development nodemon -w *.*.ts --exec ts-node ./src/main.ts",
     "dev": "cross-env NODE_ENV=test nodemon -w *.*.ts --exec ts-node ./src/main.ts",
-    "test": "mocha src/__test__/**/*.test.ts src/api/**/*.test.ts",
-    "test_cover": "istanbul cover node_modules/mocha/bin/_mocha src/api/**/*.test.ts",
-    "docs": "documentation build api/**/*.*.ts --format md --github -o ./docs/api/image.md",
-    "prestart:prod": "tsc"
+    "prestart:prod": "tsc",
+    "test": "jest --config=jest.json",
+    "test:watch": "jest --watch --config=jest.json",
+    "test:coverage": "jest --config=jest.json --coverage --coverageDirectory=coverage",
+    "e2e": "jest --config=e2e/jest-e2e.json --forceExit",
+    "e2e:watch": "jest --watch --config=e2e/jest-e2e.json"
   },
   "dependencies": {
     "@nestjs/common": "^4.3.0",
@@ -52,10 +54,14 @@
     "xlsx-populate": "^1.11.0"
   },
   "devDependencies": {
-    "@types/node": "^8.0.28",
+    "@types/jest": "^22.2.2",
     "@types/mongoose": "^4.7.23",
+    "@types/node": "^8.0.28",
     "cross-env": "^5.1.0",
+    "jest": "^22.4.3",
     "nodemon": "^1.12.1",
+    "supertest": "^3.0.0",
+    "ts-jest": "^22.4.2",
     "ts-node": "^3.3.0"
   }
 }
