@@ -7,6 +7,8 @@ import * as cookieParser from 'cookie-parser';
 import * as cors from 'cors';
 import * as session from 'express-session';
 import * as flash from 'express-flash';
+import * as express from 'express';
+import * as path from 'path';
 
 import CONFIG from '../config';
 import { ApplicationModule } from './app.module';
@@ -29,6 +31,10 @@ async function bootstrap() {
         cookie: { secure: true }
     }));
     app.use(flash())
+
+    app.use(express.static(path.join(__dirname, 'public')));
+    app.set('views', __dirname + '/views');
+    app.set('view engine', 'jade');
 
     /** nest通用 */
     app.useGlobalPipes(new ValidationPipe());

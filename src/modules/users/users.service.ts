@@ -2,7 +2,6 @@ import { Model } from 'mongoose';
 import { Component, Inject } from '@nestjs/common';
 import { User } from './interfaces/user.interface';
 import { CreateUserDto } from './dto/user.dto';
-import { success } from '../../common/common.utils';
 
 @Component()
 export class UsersService {
@@ -11,10 +10,7 @@ export class UsersService {
   async create(createUserDto: CreateUserDto) {
     const createdUser: any = new this.userModel(createUserDto);
     createdUser.setPassword(createUserDto.password);
-    await createdUser.save();
-    return success({
-        access_token: createdUser.generateJwt()
-    })
+    return await createdUser.save();
   }
 
   async findAll(): Promise<User[]> {

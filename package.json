@@ -33,6 +33,7 @@
     "express-flash": "^0.0.2",
     "express-session": "^1.15.6",
     "http-proxy": "^1.16.2",
+    "jade": "^1.11.0",
     "jsonwebtoken": "^8.1.0",
     "lodash": "^4.17.4",
     "lz-string": "^1.4.4",

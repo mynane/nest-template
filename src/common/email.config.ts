@@ -19,7 +19,7 @@ export default {
                     <td align="left" id="content-cell" style="border-top:1px solid #f2f2f2;border-bottom: 1px solid #f2f2f2;padding-top:40px;padding-bottom:60px;">
                         ${data.name}：您好：			    
                         <p>欢迎注册</p>
-                        <p>点击链接完成注册<a href="http://iforgot.apple.com" target="_blank" rel="noopener nofollow">iforgot.apple.com</a> </p>
+                        <p>点击链接完成注册<a href="${data.url}" target="_blank" rel="noopener nofollow">${data.url}</a> </p>
                         
                     </td>
                     <td class="right-gutter" style="width:20px;"></td>

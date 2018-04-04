@@ -29,4 +29,14 @@ export class AuthService {
         return user
     }
 
+    async activation(id) {
+        const user = await this.userModel.findById(id);
+        if (!user.activity) {
+            await this.userModel.findByIdAndUpdate(id, { $set: { activity: true }});
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }

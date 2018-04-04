@@ -7,7 +7,7 @@ const mongo = {
         "database": "nest"
     },
     "production": {
-        "host": "localhost",
+        "host": "xxxx",
         "port": 32769,
         "database": "nest"
     }
@@ -21,7 +21,7 @@ export default {
     // 登录过期时间
     "expiresIn": 7 * 24 * 60 * 60,
     // 秘钥
-    "secretOrKey": "xcdcxt",
+    "secretOrKey": "28194567387",
     // mongodb 配置
     "mongo": mongo[NODE_ENV],
     // 应用名称
