@@ -16,13 +16,21 @@ export class AuthController {
     @Render('verification')
     public async verification(@Response() res, @Param('token') token) {
         const id = token;
+        const date: any = new Date();
 
         try {
             const cry = decrypto(token);
-            const result = await this.authService.activation(cry.id);
-            return {type: result};
+            const time = date * 1;
+            const over = time - cry.time;
+            const effective = over < 30 * 60 * 1000 && over > 0;
+
+            if (effective) {
+                await this.authService.activation(cry.id);
+            } else {
+                return {type: '验证失效'}
+            }
         } catch (error) {
-            return {type: false};
+            return {type: '激活失败'};
         }
     }
 }
