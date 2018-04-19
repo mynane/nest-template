@@ -3,12 +3,12 @@ const { NODE_ENV = 'production' } = process.env;
 const mongo = {
     "development": {
         "host": "localhost",
-        "port": 32769,
+        "port": 27027,
         "database": "nest"
     },
     "production": {
-        "host": "xxxx",
-        "port": 32769,
+        "host": "118.24.172.203",
+        "port": 27027,
         "database": "nest"
     }
 }
@@ -28,7 +28,7 @@ export default {
     "appName": "快应用",
     "email": {
         "host": "smtp.qq.com",
-        "user": "xxxx@qq.com",
-        "pass": "xxxx" 
+        "user": "755836844@qq.com",
+        "pass": "lkaaladoeerhbcgg" 
     }
 }
